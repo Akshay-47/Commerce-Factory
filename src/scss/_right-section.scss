@@ -2,13 +2,15 @@
 .right-section {
   position: relative;
   .cart-header {
-    margin: 4em 0 2em 0;
+    height: 6em;
     display: flex;
     justify-content: center;
     align-items: center;
     .cart-icon {
       display: inline-flex;
       position: relative;
+      top: unset;
+      right: unset;
       .item-count {
         position: absolute;
         right: 0;
@@ -43,7 +45,8 @@
     }
     .close-cart-button {
       position: absolute;
-      bottom: 100%;
+      // bottom: 100%;
+      top: 0;
       left: 0;
       z-index: 999;
       padding: 1em;
@@ -55,9 +58,9 @@
     }
   }
   .cart-icon {
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 0;
+    top: 5em;
     .item-count {
       position: absolute;
       top: 60%;

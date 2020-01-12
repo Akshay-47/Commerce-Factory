@@ -14,8 +14,9 @@
     }
     .left-section,
     .right-section {
-      padding: 1em;
-      min-height: 1000px;
+      padding: 0 1em;
+      height: calc(100vh - 5em);
+      overflow-y: scroll;
     }
   }
 }
