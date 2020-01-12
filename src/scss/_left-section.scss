@@ -1,0 +1,21 @@
+@import "./variables";
+
+.button-wrapper {
+  h3 {
+    margin: 0;
+    display: inline-flex;
+  }
+  .t_shirt-size-button {
+    padding: 1em;
+    border: none;
+    background-color: $button-bg-color;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    margin: 0 1em 1em 0;
+    &.active {
+      color: $button-bg-color;
+      background-color: $black;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import "./variables";
+.right-section {
+  position: relative;
+  .cart-header {
+    margin: 4em 0 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cart-icon {
+      display: inline-flex;
+      position: relative;
+      .item-count {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    .header-name {
+      font-size: 18px;
+      position: absolute;
+      left: 120%;
+      top: 25%;
+    }
+  }
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    &.active {
+      width: 40%;
+    }
+    .overlay-content {
+      position: relative;
+      color: $white;
+      height: 100%;
+    }
+    .close-cart-button {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      z-index: 999;
+      padding: 1em;
+      cursor: pointer;
+      span {
+        color: $white;
+        font-size: 2em;
+      }
+    }
+  }
+  .cart-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    .item-count {
+      position: absolute;
+      top: 60%;
+      right: 5%;
+      background-color: $item-price-color;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+    }
+    img {
+      max-height: 50px;
+      max-width: 50px;
+    }
+  }
+  .action-info {
+    display: flex;
+    justify-content: space-between;
+    height: 3em;
+  }
+}

@@ -1,0 +1,21 @@
+@import "./left-section";
+@import "./header";
+@import "./right-section";
+@import "./card-item";
+@import "./cart";
+.main {
+  .section-wrapper {
+    display: flex;
+    .left-section {
+      flex: 10;
+    }
+    .right-section {
+      flex: 90;
+    }
+    .left-section,
+    .right-section {
+      padding: 1em;
+      min-height: 1000px;
+    }
+  }
+}
