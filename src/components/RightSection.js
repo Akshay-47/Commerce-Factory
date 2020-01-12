@@ -66,9 +66,9 @@ const RightSection = () => {
           {renderCartUi(cartItemsCount)}
         </div>
       </div>
-      <div className="action-info">
+      {/* <div className="action-info">
         <div className="product-count">16 product(s) found</div>
-      </div>
+      </div> */}
       <CardItem />
     </div>
   );
