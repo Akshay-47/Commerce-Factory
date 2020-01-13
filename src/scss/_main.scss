@@ -1,8 +1,10 @@
 @import "./left-section";
+@import "./loader";
 @import "./header";
 @import "./right-section";
 @import "./card-item";
 @import "./cart";
+
 .main {
   .section-wrapper {
     display: flex;

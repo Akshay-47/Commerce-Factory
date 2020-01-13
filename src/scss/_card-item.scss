@@ -18,6 +18,8 @@
   .image-wrapper {
     position: relative;
     display: inline-flex;
+    min-width: 300px;
+    min-height: 300px;
     .free-shipping-button {
       position: absolute;
       right: 0;

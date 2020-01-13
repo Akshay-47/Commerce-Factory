@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { addToCart } from "../store/cart";
 
 const CardItem = () => {
   const products = useSelector(state => state.productData.products);
+
+  return <div className="products">{<RenderCards products={products} />}</div>;
+};
+
+export default CardItem;
+
+const RenderCards = ({ products }) => {
   const filters = useSelector(state => state.filterBy);
   const dispatch = useDispatch();
+  const [didLoad, setDidLoad] = useState(false);
 
   const filterBy = (products, filters) => {
     if (!filters.length) return products;
@@ -20,32 +28,33 @@ const CardItem = () => {
       return accumulator;
     }, []);
   };
-
-  const renderCards = products => {
-    const itemsToDisplay = filterBy(products, filters);
-    return itemsToDisplay.map((product, index) => {
-      return (
-        <div key={index} className="card-wrapper">
-          <div className="image-wrapper">
-            <img src={product.poster} alt={product.name} />
-            <button className="free-shipping-button">Free Shipping</button>
-          </div>
-          <div className="card-footer">
-            <div className="product-name">{product.name} T-Shirt</div>
-            <div className="product-price">{product.price}</div>
-            <button
-              onClick={() => dispatch(addToCart(product))}
-              className="add-to-cart-button"
-            >
-              <h2>Add to cart</h2>
-            </button>
-          </div>
+  const itemsToDisplay = filterBy(products, filters);
+  return itemsToDisplay.map((product, index) => {
+    return (
+      <div key={index} className="card-wrapper">
+        <div className="image-wrapper">
+          <img
+            onLoad={() => {
+              setDidLoad(true);
+            }}
+            src={product.poster}
+            alt={product.name}
+          />
+          {!didLoad && <div className="loader">Loading...</div>}
+          <button className="free-shipping-button">Free Shipping</button>
         </div>
-      );
-    });
-  };
 
-  return <div className="products">{renderCards(products)}</div>;
+        <div className="card-footer">
+          <div className="product-name">{product.name} T-Shirt</div>
+          <div className="product-price">{product.price}</div>
+          <button
+            onClick={() => dispatch(addToCart(product))}
+            className="add-to-cart-button"
+          >
+            <h2>Add to cart</h2>
+          </button>
+        </div>
+      </div>
+    );
+  });
 };
-
-export default CardItem;
